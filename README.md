@@ -6,6 +6,10 @@
 
 ## Deploy this code on Render
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/strangespider2009-star/Smart-vehicle-guard)
+
+Use the button above, choose your Render workspace, review the proposed **web service** and select **Apply**. This uses the repository's existing `render.yaml` (Node runtime, production install including Vite, automated tests, build, and generated session secret). After Render reports **Live**, test the exact service URL it provides and open `/api/health`; expected JSON includes `"ok":true`. For phone passkeys, `server/passkeys.js` uses Render's `RENDER_EXTERNAL_URL` automatically on the default `.onrender.com` domain. If you instead use a custom domain, set `WEBAUTHN_ORIGIN` to that site's exact HTTPS origin and redeploy.
+
 See **[DEPLOY_LOGIX.md](DEPLOY_LOGIX.md)** for the GitHub `Smart-vehicle-guard` repository, the included `render.yaml` Blueprint and the exact live-site verification steps.
 
 ## 0. What's inside
