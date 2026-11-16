@@ -1,0 +1,18 @@
+# Render Blueprint for the LOGIX educational LED-only demo.
+# Deploy as a single Web Service so the React site and /api share one origin.
+services:
+  - type: web
+    name: smart-vehicle-guard
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev && npm run check && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+
+# For phone passkey registration on a custom domain, set WEBAUTHN_ORIGIN to the
+# exact public HTTPS origin in Render > Environment (no trailing path).
