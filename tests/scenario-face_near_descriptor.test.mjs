@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {compareDescriptors} from '../src/face.js';
+const a = Array(128).fill(0.1);
+const near = Array(128).fill(0.11);
+const far = Array(128).fill(0.4);
+const opposite = Array(128).fill(-0.6);
+const bad = Array(127).fill(0.1);
+const nan = [...a]; nan[0]=NaN;
+test('face near descriptor',()=>{assert.equal(compareDescriptors(a,near).matched, true);});
